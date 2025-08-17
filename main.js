@@ -1,4 +1,5 @@
 const { app, BrowserWindow, ipcMain, dialog, shell } = require('electron');
+const { autoUpdater } = require('electron-updater');
 const fs = require('fs');
 const path = require('path');
 
@@ -52,44 +53,39 @@ function createMainWindow() {
 
     mainWindow.loadFile('index.html');
     mainWindow.on('closed', () => { mainWindow = null; });
+
+    autoUpdater.checkForUpdatesAndNotify();
 }
-
 function createSettingsWindow() {
-    if (settingsWindow) {
-        settingsWindow.focus();
-        return;
-    }
-    settingsWindow = new BrowserWindow({
-        width: 500,
-        height: 600,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
-        },
-        title: 'Settings'
-    });
-
-    settingsWindow.loadFile('settings.html');
-    settingsWindow.on('closed', () => { settingsWindow = null; });
+  if (settingsWindow) { settingsWindow.focus(); return; }
+  settingsWindow = new BrowserWindow({
+    width: 500,
+    height: 600,
+    parent: mainWindow,          // 부모
+    modal: true,                 // 모달
+    alwaysOnTop: true,           // 최상위 유지
+    resizable: false,
+    webPreferences: { nodeIntegration: true, contextIsolation: false },
+    title: 'Settings'
+  });
+  settingsWindow.on('closed', () => { settingsWindow = null; });
+  settingsWindow.loadFile('settings.html');
 }
 
 function createAboutWindow() {
-    if (aboutWindow) {
-        aboutWindow.focus();
-        return;
-    }
-    aboutWindow = new BrowserWindow({
-        width: 550,
-        height: 650,
-        webPreferences: {
-            nodeIntegration: true,
-            contextIsolation: false,
-        },
-        title: 'About My Vocabulary'
-    });
-
-    aboutWindow.loadFile('about.html');
-    aboutWindow.on('closed', () => { aboutWindow = null; });
+  if (aboutWindow) { aboutWindow.focus(); return; }
+  aboutWindow = new BrowserWindow({
+    width: 550,
+    height: 650,
+    parent: mainWindow,
+    modal: true,
+    alwaysOnTop: true,
+    resizable: false,
+    webPreferences: { nodeIntegration: true, contextIsolation: false },
+    title: 'About My Vocabulary'
+  });
+  aboutWindow.on('closed', () => { aboutWindow = null; });
+  aboutWindow.loadFile('about.html');
 }
 
 app.whenReady().then(() => {
@@ -138,6 +134,8 @@ ipcMain.handle('dialog:openFile', async () => {
     const content = fs.readFileSync(filePath, 'utf-8');
     return { filePath, content };
 });
+
+ipcMain.handle('get-userData-path', () => app.getPath('userData'));
 
 ipcMain.on('edit-file', (event, filePath) => {
     if (!filePath) {

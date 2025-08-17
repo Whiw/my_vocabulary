@@ -10,6 +10,11 @@
   "build": {
     "appId": "com.gemini.myvocabularyapp",
     "productName": "My Vocabulary",
+    "publish": {
+      "provider": "github",
+      "owner": "Whiw",
+      "repo": "my_vocabulary"
+    },
     "files": [
       "**/*",
       "!node_modules/electron-builder/**/*"
@@ -24,11 +29,13 @@
     }
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
   "author": "whiw",
+  "license": "ISC",
   "devDependencies": {
     "electron": "^31.0.1",
     "electron-builder": "^26.0.12"
+  },
+  "dependencies": {
+    "electron-updater": "^6.6.2"
   }
 }
