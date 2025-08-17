@@ -1,0 +1,34 @@
+{
+  "name": "my-vocabulary-app",
+  "version": "1.0.0",
+  "description": "A simple vocabulary learning app.",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder"
+  },
+  "build": {
+    "appId": "com.gemini.myvocabularyapp",
+    "productName": "My Vocabulary",
+    "files": [
+      "**/*",
+      "!node_modules/electron-builder/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "build/icon.ico"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "build/icon.icns"
+    }
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "author": "whiw",
+  "devDependencies": {
+    "electron": "^31.0.1",
+    "electron-builder": "^26.0.12"
+  }
+}

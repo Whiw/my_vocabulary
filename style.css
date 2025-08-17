@@ -1,0 +1,119 @@
+body {
+    --word-color: #61afef; /* Default word color */
+    --font-color: #abb2bf; /* Default meaning color */
+    --font-size: 24px;    /* Default word font size */
+    --font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+
+    font-family: var(--font-family);
+    background-color: rgba(40, 44, 52, 0.9);
+    color: var(--font-color);
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+    user-select: none;
+    border-radius: 10px; /* Rounded corners for the frameless window */
+}
+
+.top-controls {
+    -webkit-app-region: no-drag;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    z-index: 100;
+}
+
+.top-controls .control-button {
+    margin-left: 5px;
+    background-color: rgba(0,0,0,0.2);
+    border: 1px solid #555;
+    color: #ccc;
+    padding: 3px 7px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.container {
+    -webkit-app-region: drag; /* Allows dragging the frameless window */
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 15px;
+}
+
+.main-content {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-grow: 1;
+}
+
+.word-area {
+    text-align: center;
+    flex-grow: 1;
+}
+
+#word {
+    font-size: var(--font-size);
+    font-weight: bold;
+    color: var(--word-color);
+    margin-bottom: 10px;
+    min-height: 30px;
+}
+
+#meaning {
+    font-size: calc(var(--font-size) * 0.75);
+    min-height: 22px;
+    color: var(--font-color);
+}
+
+.nav-button {
+    -webkit-app-region: no-drag; /* Prevents dragging on buttons */
+    background: none;
+    border: 1px solid #444;
+    color: #abb2bf;
+    font-size: 20px;
+    cursor: pointer;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    line-height: 25px;
+    text-align: center;
+}
+
+.controls-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 10px;
+}
+
+.learned-control {
+    -webkit-app-region: no-drag;
+}
+
+.buttons-right button {
+    -webkit-app-region: no-drag;
+    background: none;
+    border: 1px solid #444;
+    color: #abb2bf;
+    cursor: pointer;
+    margin-left: 5px;
+    padding: 5px 8px;
+    border-radius: 5px;
+}
+
+.buttons-right button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Hide UI Mode */
+.ui-hidden .nav-button,
+.ui-hidden .learned-control,
+.ui-hidden #load-button,
+.ui-hidden #edit-button,
+.ui-hidden .top-controls {
+    display: none;
+}

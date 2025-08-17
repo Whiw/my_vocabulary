@@ -1,0 +1,14 @@
+# Dependencies
+/node_modules
+
+# Build output
+/dist
+
+# User-specific files
+learned.json
+settings.json
+
+# Lockfiles
+package-lock.json
+yarn.lock
+pnpm-lock.yaml

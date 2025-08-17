@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>My Vocabulary</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="top-controls">
+        <button class="control-button" id="help-button" title="Help">Help</button>
+        <button class="control-button" id="settings-button" title="Settings">Settings</button>
+    </div>
+
+    <div class="container">
+        <div class="main-content">
+            <button class="nav-button" id="prev-button">&lt;</button>
+            <div class="word-area">
+                <div id="word">Welcome!</div>
+                <div id="meaning">Load a TSV file to start.</div>
+            </div>
+            <button class="nav-button" id="next-button">&gt;</button>
+        </div>
+        <div class="controls-bottom">
+            <div class="learned-control">
+                <input type="checkbox" id="learned-checkbox"/>
+                <label for="learned-checkbox">Learned</label>
+            </div>
+            <div class="buttons-right">
+                <button class="control-button" id="help-button" title="Help">Help</button>
+                <button class="control-button" id="settings-button" title="Settings">Settings</button>
+                <button class="control-button" id="mode-button" title="Toggle Controls">Hide</button>
+                <button class="control-button" id="edit-button" title="Edit TSV File" disabled>Edit</button>
+                <button class="control-button" id="load-button" title="Load TSV File">Load</button>
+            </div>
+        </div>
+    </div>
+    <script src="renderer.js"></script>
+</body>
+</html>

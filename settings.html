@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Settings</title>
+    <link rel="stylesheet" href="settings.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Settings</h1>
+
+        <div class="settings-section">
+            <h2>Appearance</h2>
+            <div class="form-group">
+                <label for="font-family-input">Font Family</label>
+                <input type="text" id="font-family-input">
+            </div>
+            <div class="form-group">
+                <label for="font-size-input">Word Font Size (px)</label>
+                <input type="number" id="font-size-input" min="10">
+            </div>
+            <div class="form-group">
+                <label for="word-color-input">Word Color</label>
+                <input type="color" id="word-color-input">
+            </div>
+            <div class="form-group">
+                <label for="font-color-input">Meaning Color</label>
+                <input type="color" id="font-color-input">
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Behavior</h2>
+            <div class="form-group">
+                <label for="timer-input">Word Interval (seconds)</label>
+                <input type="number" id="timer-input" min="1">
+            </div>
+        </div>
+
+        <div class="settings-section">
+            <h2>Learned Words</h2>
+            <div id="learned-list-container">
+                <!-- Learned words will be populated here by JS -->
+            </div>
+        </div>
+
+        <button id="save-button">Save and Apply</button>
+    </div>
+    <script src="settings.js"></script>
+</body>
+</html>
