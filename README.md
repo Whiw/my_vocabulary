@@ -11,7 +11,6 @@
 - **Overlay window** that stays on top of other apps (drag & resize freely)
 - **Auto-cycling words** on a timer (hover to pause; click to skip)
 - **Mark as Learned** to hide words you’ve mastered
-- **Keyboard shortcuts** for quick navigation
 - **Multi-language UI (EN/KR)**
 - **Built-in sample TSV**
 - **Lightweight** (bundled Chromium & Node)
