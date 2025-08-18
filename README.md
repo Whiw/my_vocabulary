@@ -1,4 +1,5 @@
 # My Vocabulary
+![My Vocabulary overlay demo](assets/demo.gif)
 
 *A tiny, always-on-top overlay flashcard app for effortless vocabulary learning while you work or browse.*
 
