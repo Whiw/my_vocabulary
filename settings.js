@@ -184,3 +184,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     }
   }
 });
+
+const closeBtn = document.getElementById('win-close');
+if (closeBtn && process.platform !== 'darwin') closeBtn.style.display = 'none';
+
+document.getElementById('win-close')?.addEventListener('click', () => {
+  ipcRenderer.send('close-settings-window');
+});

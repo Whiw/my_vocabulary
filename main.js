@@ -96,25 +96,57 @@ function createMainWindow() {
 function createSettingsWindow() {
   if (settingsWindow) { settingsWindow.focus(); return; }
   settingsWindow = new BrowserWindow({
-    width: 500, height: 600,
-    parent: mainWindow, modal: true, alwaysOnTop: true, resizable: false,
+    width: 500,
+    height: 600,
+    parent: mainWindow,
+    modal: true,
+    alwaysOnTop: true,
+    resizable: false,
+    // 🔽 macOS에서 닫기/최소화/확대(트래픽 라이트) 확실히 노출
+    frame: true,
+    titleBarStyle: 'default',
+    fullscreenable: false,
+    closable: true,
     webPreferences: { nodeIntegration: true, contextIsolation: false },
     title: 'Settings'
   });
-  settingsWindow.on('closed', () => { settingsWindow = null; });
   settingsWindow.loadFile('settings.html');
+  settingsWindow.on('closed', () => { settingsWindow = null; });
+
+  // ⌘W 로 닫기
+  settingsWindow.webContents.on('before-input-event', (e, input) => {
+    if (input.meta && input.key?.toLowerCase() === 'w') {
+      e.preventDefault();
+      settingsWindow.close();
+    }
+  });
 }
 
 function createAboutWindow() {
   if (aboutWindow) { aboutWindow.focus(); return; }
   aboutWindow = new BrowserWindow({
-    width: 550, height: 650,
-    parent: mainWindow, modal: true, alwaysOnTop: true, resizable: false,
+    width: 550,
+    height: 650,
+    parent: mainWindow,
+    modal: true,
+    alwaysOnTop: true,
+    resizable: false,
+    frame: true,
+    titleBarStyle: 'default',
+    fullscreenable: false,
+    closable: true,
     webPreferences: { nodeIntegration: true, contextIsolation: false },
     title: 'About My Vocabulary'
   });
-  aboutWindow.on('closed', () => { aboutWindow = null; });
   aboutWindow.loadFile('about.html');
+  aboutWindow.on('closed', () => { aboutWindow = null; });
+
+  aboutWindow.webContents.on('before-input-event', (e, input) => {
+    if (input.meta && input.key?.toLowerCase() === 'w') {
+      e.preventDefault();
+      aboutWindow.close();
+    }
+  });
 }
 
 const seedName = 'words.tsv';
@@ -213,6 +245,9 @@ ipcMain.on('set-last-file', (_e, filePath) => {
   s.lastFilePath = filePath || null;
   saveSettings(s);
 });
+
+ipcMain.on('close-settings-window', () => { if (settingsWindow) settingsWindow.close(); });
+ipcMain.on('close-about-window',    () => { if (aboutWindow)    aboutWindow.close(); });
 
 ipcMain.handle('get-userData-path', () => app.getPath('userData'));
 

@@ -237,3 +237,10 @@ window.addEventListener('DOMContentLoaded', async () => {
     if (tossImg && tossPath)   tossImg.src  = `file://${tossPath.replace(/\\/g,'/')}`;
   }
 });
+
+const closeBtn = document.getElementById('win-close');
+if (closeBtn && process.platform !== 'darwin') closeBtn.style.display = 'none';
+
+document.getElementById('win-close')?.addEventListener('click', () => {
+  ipcRenderer.send('close-about-window');
+});
