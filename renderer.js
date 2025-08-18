@@ -7,6 +7,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   // DOM Elements
   const wordEl = document.getElementById('word');
   const meaningEl = document.getElementById('meaning');
+  const exampleEl = document.getElementById('example');
   const learnedCheckbox = document.getElementById('learned-checkbox');
   const loadButton = document.getElementById('load-button');
   const prevButton = document.getElementById('prev-button');
@@ -58,6 +59,7 @@ async function initialize() {
     document.body.style.setProperty('--font-size', `${settings.fontSize ?? 24}px`);
     document.body.style.setProperty('--word-color', settings.wordColor || '#61afef');
     document.body.style.setProperty('--font-color', settings.fontColor || '#abb2bf');
+    document.body.style.setProperty('--example-color', settings.exampleColor || '#c8ccd4');
     resetTimer(); // 타이머 갱신
   }
 
@@ -76,7 +78,7 @@ async function initialize() {
   function saveLearnedWords() {
     try {
       fs.writeFileSync(learnedWordsPath, JSON.stringify(Array.from(learnedWords), null, 2));
-      ipcRenderer.send('learned-words-updated');
+      //ipcRenderer.send('learned-words-updated');
     } catch (error) {
       console.error('Error saving learned words:', error);
     }
@@ -87,12 +89,23 @@ async function initialize() {
     if (words.length === 0) {
       wordEl.textContent = 'All Done!';
       meaningEl.textContent = 'Load a new file or restart.';
+      if (exampleEl) exampleEl.style.display = '';
       if (timer) clearInterval(timer);
       return;
     }
     const current = words[currentIndex];
     wordEl.textContent = current.word;
     meaningEl.textContent = current.meaning;
+
+    if (exampleEl) {
+      if (current.example && current.example.length > 0) {
+        exampleEl.textContent = current.example;
+        exampleEl.style.display = '';
+      } else {
+        exampleEl.textContent = '';
+        exampleEl.style.display = 'none';
+      }
+    }
     learnedCheckbox.checked = false;
   }
 
@@ -120,29 +133,34 @@ async function initialize() {
 
   function loadAndFilterWords(fileContent) {
     const allWords = fileContent
-      .replace(/\r\n/g, '\n')
-      .split('\n')
-      .map(l => l.trim())
-      .filter(l => l && !l.startsWith('#'))
-      .map(line => {
-        const [word, meaning] = line.split('\t');
-        return { word: (word || '').trim(), meaning: (meaning || '').trim() };
-      });
+    .replace(/\r\n/g, '\n')
+    .split('\n')
+    .map(l => l.trim())
+    .filter(l => l && !l.startsWith('#'))
+    .map(line => {
+      // 단어 ↹ 뜻 [↹ 예문] (3번째 칼럼은 선택)
+      const parts = line.split('\t');
+      const word = (parts[0] || '').trim();
+      const meaning = (parts[1] || '').trim();
+      const example = (parts[2] || '').trim(); // 없으면 빈 문자열
+      return { word, meaning, example };
+    });
 
-    loadLearnedWords();
-    words = allWords.filter(w => w.word && !learnedWords.has(w.word));
+  loadLearnedWords();
+  words = allWords.filter(w => w.word && !learnedWords.has(w.word));
 
-    editButton.disabled = false;
-    if (words.length > 0) {
-      currentIndex = 0;
-      displayWord();
-      resetTimer();
-    } else {
-      wordEl.textContent = 'All learned!';
-      meaningEl.textContent = 'Every word in this file is learned.';
-      if (timer) clearInterval(timer);
-    }
+  editButton.disabled = false;
+  if (words.length > 0) {
+    currentIndex = 0;
+    displayWord();
+    resetTimer();
+  } else {
+    wordEl.textContent = 'All learned!';
+    meaningEl.textContent = 'Every word in this file is learned.';
+    exampleEl.style.display = 'none';
+    if (timer) clearInterval(timer);
   }
+}
 
   // --- EVENT LISTENERS ---
   loadButton.addEventListener('click', async () => {

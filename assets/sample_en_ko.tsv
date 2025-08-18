@@ -1,394 +1,109 @@
-unprecedented	전례 없는
-acceleration	가속, 가속화
-technological innovation	기술 혁신
-provoke	촉발하다, 유발하다
-reevaluation	재평가
-exercise (agency)	(주체성을) 행사하다
-human agency	인간의 행위 주체성
-Enlightenment	계몽주의
-conception (of)	개념, 이해
-rational autonomy	합리적 자율성
-deliberate (v.)	숙고하다
-entangled (with)	뒤얽힌, 얽혀 있는
-opaque	불투명한, 불분명한
-operations	작동, 운용
-complex technological systems	복잡한 기술 체계
-artificial intelligence	인공지능
-extend (human capacities)	(인간 능력을) 확장하다
-reconfigure	재구성하다
-conditions (under which)	(그 아래에서의) 조건
-algorithms	알고리즘
-shape (preferences)	(선호를) 형성하다
-consumer preferences	소비자 선호
-filter (discourse)	(담론을) 걸러내다
-political discourse	정치적 담론
-anticipate	예상하다, 예측하다
-criminal behavior	범죄 행위
-thereby	그로 인해, 그리하여
-exert (power/influence)	(힘·영향을) 행사하다
-anticipatory governance	예측적 지배/통치
-the line between A and B	A와 B 사이의 경계
-machine influence	기계(알고리즘)의 영향
-blurred	흐릿해진, 모호한
-primary authors (of actions)	행동의 주요 주체
-cybernetic feedback loop	사이버네틱 피드백 루프
-critics contend	비평가들은 주장한다
-erosion (of agency)	(주체성의) 약화·침식
-threaten the notion	개념을 위협하다
-responsibility	책임
-scaffolded	구조적으로 지탱된, 뒷받침된
-predetermined	미리 결정된
-algorithmic infrastructures	알고리즘적 기반 구조
-traditional frameworks	전통적 틀/체계
-moral and legal accountability	도덕적·법적 책임성
-prove inadequate	불충분한 것으로 드러나다
-conceive (as)	~로 이해하다/간주하다
-isolated faculty	고립된 능력
-distributed phenomenon	분산된 현상
-emerge (from)	~에서 발생하다/나오다
-dynamic interplay	역동적 상호작용
-technological mediation	기술적 매개(중개)
-socio-political structures	사회·정치적 구조
-# Core Academic Verbs & Nouns
-underscore	강조하다, 밑줄 긋다
-delineate	윤곽을 그리다, 상세히 설명하다
-elucidate	명확히 설명하다
-explicate	해명하다, 해석하다
-articulate	분명히 표현하다
-circumscribe	제한하다, 경계를 정하다
-constrain	제한하다, 강요하다
-contend	주장하다, 다투다
-stipulate	규정하다, 명기하다
-construe	해석하다
-adduce	증거로 제시하다
-allude	암시하다, 넌지시 언급하다
-invoke	(법/원칙 등을) 들먹이다, 호소하다
-evoke	불러일으키다
-elicit	이끌어내다, 도출하다
-entail	수반하다, 필요로 하다
-engender	발생시키다, 낳다
-precipitate	촉발하다; 성급한
-mitigate	완화하다
-exacerbate	악화시키다
-ameliorate	개선하다
-attenuate	약화시키다
-corroborate	확증하다
-substantiate	입증하다
-invalidate	무효화하다
-supersede	대신하다, 대체하다
-differentiate	구별하다, 차별화하다
-disentangle	엉킨 것을 풀다, 분리하다
-synthesize	종합하다
-triangulate	삼각 검증하다(여러 근거로 교차 확인)
-approximate	근사값을 내다; 대략의
-conflate	합치다, 혼합하다
-extrapolate	외삽하다, 추정하다
-interpolate	내삽하다, 끼워 넣다
-infer	추론하다
-ascertain	확인하다, 규명하다
-reconcile	조정/화해시키다
-replicate	복제/재현하다
-benchmark	기준을 삼다; 기준 지표
-ablate	(과학) 제거 실험을 하다; 절제하다
-abrogate	폐지하다, 무효로 하다
-offset	상쇄하다
-supplant	대체하다
-redress	시정하다, 보상하다
-deem	간주하다
-broach	(어려운 주제를) 꺼내다
-predicate (on)	~에 근거를 두다
-postulate	가정하다
-posit	단정적으로 제시하다
-qualify	제한/수정해서 말하다; 자격을 주다
-contest	이의를 제기하다
-illuminate	밝히다, 설명하다
-
-# Academic Adjectives & Nouns
-salient	두드러진, 핵심적인
-pertinent	적절한, 관련 있는
-tenable	지지 가능한, 방어 가능한
-untenable	지지 불가의
-tractable	다루기 쉬운
-intractable	다루기 어려운
-equivocal	모호한, 애매한
-univocal	일의적인, 명확한
-parsimonious	검소한; (모델이) 간결한
-spurious	가짜의, 허위의; (상관이) 허위의
-orthogonal	독립적인, 직교의
-commensurate (with)	상응하는, 비례한
-concomitant	수반되는
-contingent (on)	~에 달린; 우발적인
-counterintuitive	직관에 반하는
-robust	견고한, 강건한
-idiosyncratic	특이한, 개성적인
-canonical	정전(正典)의; 표준적인
-putative	추정상의, 소위 ~라 불리는
-purported	소문상의, 알려진 바의
-heuristic	발견적 방법(의)
-axiom	공리
-lemma	보조정리
-corollary	따름정리, 필연적 결과
-provenance	기원, 출처
-taxonomy	분류학, 분류 체계
-ontology	존재론; 개체/개념 체계
-epistemology	인식론
-teleology	목적론
-dichotomy	이분법
-continuum	연속체
-manifold	다양체; 매우 다양한
-invariant	불변의; 불변량
-stochastic	확률적인
-deterministic	결정론적인
-asymptotic	점근적인
-marginal	한계의; 주변의
-posterior	사후(확률)
-prior	사전(확률); 우선하는
-likelihood	가능도, 우도
-variance	분산
-deviation	편차
-bias	편향
-variance trade-off	편향–분산 절충
-endogeneity	내생성
-heterogeneity	이질성
-confounder	혼동 변수
-significance	통계적 유의성
-p-value	p값
-power (statistical)	검정력
-effect size	효과 크기
-ablation study	제거 실험
-sensitivity analysis	민감도 분석
-baseline	기준선, 기본 모델
-
-# High-utility Connectors & Phrases
-albeit	비록 ~일지라도
-notwithstanding	그럼에도 불구하고
-whereas	~인 반면에
-thereby	그리하여, 그로 인해
-hereby	이에 의해(공식 표현)
-hence	그러므로, 그래서
-thus	따라서, 그렇게
-ergo	그러므로(격식)
-whereby	그에 따라 ~하는
-insofar as	~하는 한에서
-inasmuch as	~이므로, ~하는 만큼
-to the extent that	~한 범위에서
-a case in point	적절한 예
-by the same token	같은 이유로
-for all intents and purposes	사실상
-call into question	의문을 제기하다
-bring to bear	(지식·영향을) 적용하다
-bear out	입증하다
-boil down to	요약/결국 ~이 되다
-hinge on	~에 달려 있다
-stem from	~에서 비롯되다
-amount to	~에 해당하다
-set forth	제시하다, 설명하다
-come to terms with	받아들이고 화해하다
-
-# General Literary Tone (Fiction-friendly)
-ominous	불길한
-eerie	섬뜩한
-uncanny	불가사의한, 기이한
-sinister	사악한, 불길한
-malevolent	악의적인
-benevolent	자비로운
-vindictive	앙심 깊은
-brazen	뻔뻔스러운
-defiant	반항적인
-forthright	직설적인
-reticent	말수가 적은, 과묵한
-taciturn	과묵한
-loquacious	수다스러운
-pensive	수심 어린, 사색적인
-wistful	아쉬워하는, 애틋한
-brooding	음울한, 생각에 잠긴
-nonchalant	차분한, 태연한
-resolute	단호한
-austere	소박한; 엄격한
-opulent	호화로운
-lavish	아낌없는, 호화로운
-squalid	지저분하고 불결한
-decrepit	노후한, 쇠약한
-dilapidated	황폐한, 허물어진
-precarious	위태로운
-tenuous	미약한, 빈약한
-conspicuous	눈에 띄는
-surreptitious	은밀한
-furtive	몰래 하는
-elusive	파악하기 어려운
-evanescent	덧없는, 순식간에 사라지는
-meticulous	꼼꼼한
-scrupulous	세심한; 양심적인
-cursory	대충 하는, 서두르는
-
-# Mystery/Crime Vocabulary
-alibi	알리바이, 현장부재증명
-motive	동기
-modus operandi	범행 수법
-perpetrator	가해자, 범인
-accomplice	공범
-culprit	범인, 원인
-forensics	법의학, 과학수사
-autopsy	부검
-ballistics	탄도학, 총기감정
-surveillance	감시
-stakeout	잠복근무
-subpoena	소환장
-affidavit	선서 진술서
-deposition	증언 녹취(선서)
-indictment	기소
-acquittal	무죄 판결
-conviction	유죄 판결; 확신
-circumstantial (evidence)	정황(증거)의
-incriminate	죄를 씌우다
-exculpate	무죄를 입증하다
-exonerate	혐의를 벗겨주다
-corroborate	확증하다
-testimony	증언
-allegation	혐의, 주장
-plea	탄원; 피고의 답변(유죄/무죄)
-red herring	주의를 돌리는 단서
-misdirection	시선을 돌리기(마술/추리)
-
-# Archaic & Tolkien-esque (LOTR-friendly)
-ere (~before)	~하기 전에(옛용법)
-oft	자주(옛용법)
-nay	아니오(옛/문어)
-henceforth	이후로는
-hitherto	여태까지
-yonder	저기(문어)
-behold	보라!, 바라보다(문어)
-hearken	경청하다(옛용법)
-succor (succour)	구원, 원조(문어)
-fealty	충성 서약
-fey	요정 같은; 예감에 사로잡힌(옛의미)
-fell (adj.)	사나운, 잔혹한(문어)
-doom	운명; 파멸
-bane	파멸의 원인, 재앙
-woe	비통, 비애
-tidings	소식(문어)
-errand	심부름, 임무
-muster	소집하다(군대 등)
-host (army)	대군, 군세
-mail (armor)	사슬갑옷
-helm	투구
-gird	띠를 매다; 대비하다
-smite	세게 치다, 응징하다(고어 활용: smote, smitten)
-sunder	가르다, 분리하다(문어)
-wrought	만들어진, 형성된(옛 과거분사)
-rent (past of rend)	찢어진, 갈라진
-hew/hewn	자르다, 패다(도끼 등으로)
-barrow-wight	고분의 요괴(톨킨)
-barrow	고분
-mere	호수(옛용법)
-fen	늪지
-moor	황야, 습원
-dale	골짜기
-ford	여울(얕은 도하 지점)
-mire	늪, 진창
-standard (banner)	깃발, 군기
-spearhead (v./n.)	선봉에 서다; 선봉
-waybread	(톨킨) 여행빵, 레임바스(문화어휘)
-
-# High-frequency Academic Collocations
-at odds with	~와 상충하는, 불일치하는
-at stake	위태로운 상황에
-at scale	대규모로
-by virtue of	~덕분에, ~에 의하여
-in light of	~을 고려할 때
-in the wake of	~의 여파로
-as opposed to	~와는 달리
-insofar as	~하는 한
-with respect to	~에 관하여
-a priori	경험 이전의, 선험적
-a posteriori	경험 이후의, 경험적
-ex ante	사전의
-ex post	사후의
-ceteris paribus	기타 조건이 동일하다면
-status quo	현상 유지, 기존 상태
-raison d’être	존재 이유
-sine qua non	필수 조건
-vis-à-vis	~에 대하여, ~와 비교하여
-per se	그 자체로
-inter alia	그 중에서, 특히
-
-# Science/Methods (useful for papers)
-apparatus	장치, 기구
-apparition	유령(문학); 돌연한 출현(비유)
-artifact (data)	인공 산물, 측정 왜곡
-baseline	기준선
-bootstrapping	부트스트래핑(추정/재표집)
-confounds	혼입 요인들
-control group	대조군
-treatment group	처치군
-counterfactual	반사실적
-ground truth	실제 정답, 실측값
-null hypothesis	귀무가설
-alternative hypothesis	대립가설
-multiple comparisons	다중 비교
-overfitting	과적합
-underfitting	과소적합
-regularization	정규화(규제)
-ablation	제거 실험
-cross-validation	교차 검증
-generalization	일반화
-reproducibility	재현 가능성
-robustness	강건성
-throughput	처리량
-latency	지연시간
-
-# Fiction Action & Description
-lurch	휘청거리다
-plummet	급락/추락하다
-saunter	느긋이 걷다
-trudge	터벅터벅 걷다
-skitter	(작게) 달아나다, 달칵거리다
-glint	번쩍임; 번득이다
-gleam	어슴푸레 빛나다
-sear	그슬리다, 화끈하게 굽다
-sear with guilt	죄책감으로 타들어가다(비유)
-shudder	떨다, 몸서리치다
-recoil	움찔하다, 뒷걸음질치다
-abate (fear/storm)	약화되다, 누그러지다
-ebb	(감정/힘이) 서서히 줄다
-surge	급증/용솟음치다
-brim (with)	(감정으로) 가득 차다
-rife (with)	만연한
-fraught (with)	(문제/위험이) 가득한
-laden (with)	~로 가득한
-
-# Legal/Policy for papers & essays
-jurisdiction	사법권, 관할권
-precedent	선례, 판례
-statute	법규, 법령
-ordinance	조례
-discretion	재량
-liability	법적 책임
-tort	불법 행위(민사)
-sanction	제재; 인가
-injunction	금지 명령
-locus	장소, 위치; 발생 지점
-provision	조항
-compliance	준수
-redress	구제, 시정
-recourse	의지, 구제수단
-remedy	구제책
-
-# Everyday but Bookish
-allege	(증거 없이) 주장하다
-defer	미루다; 경의를 표해 따르다(to)
-demur	이의를 제기하다
-eschew	피하다, 삼가다
-falter	비틀거리다; 주저하다
-fray	닳아 해지다; (신경) 날카로워지다
-irk	짜증나게 하다
-mull (over)	곰곰이 생각하다
-pry (into)	꼬치꼬치 캐다
-reek (of)	악취가 나다; (특징이) 풍기다
-veer	방향을 틀다
-wane	쇠퇴하다, 기울다
-wax and wane	성장하고 쇠퇴하다(차고 기우다)
-wean (off)	(~에서) 떼어놓다, 끊게 하다
-withstand	견뎌 내다
-buckle (under)	압박에 굴복하다
-weather (a storm)	(폭풍/어려움)을 견디다
+abate	약해지다, 누그러지다	The storm began to abate after midnight.
+aberration	일탈, 이상	His angry outburst was an aberration from his usual calm demeanor.
+abstain	자제하다, (투표에서) 기권하다	Many members chose to abstain rather than vote.
+acclaim	찬사, 칭송하다	The novel was widely acclaimed by critics.
+accord	합의, 일치; 부여하다	Both sides finally reached an accord.
+adept	능숙한	She is adept at solving complex problems.
+adjacent	인접한	The library is adjacent to the science building.
+adverse	불리한, 부정적인	Adverse weather conditions delayed the flight.
+advocate	옹호하다; 옹호자	He advocates for accessible education.
+aesthetic	심미적인	The house has a minimalist aesthetic.
+affable	상냥한	The host was affable and made everyone feel welcome.
+affluent	부유한	He grew up in an affluent suburb.
+aggravate	악화시키다, 화나게 하다	Scratching will only aggravate the rash.
+agile	민첩한	The gymnast is incredibly agile.
+ailment	질병, (가벼운) 병	She took herbs for a minor ailment.
+allege	(증거 없이) 주장하다	They allege that the policy is unfair.
+alleviate	완화하다	This medicine should alleviate the pain.
+ample	충분한, 풍부한	There is ample evidence to proceed.
+animosity	적대감, 원한	There is no animosity between the teams.
+anomaly	이상, 예외	The data shows an anomaly in July.
+anonymous	익명인	An anonymous donor funded the project.
+anticipate	예상하다, 기대하다	We anticipate strong demand this year.
+apathy	무관심	Voter apathy remains a concern.
+apt	적절한; ~하는 경향이 있는	That is an apt description of the problem.
+arduous	고된, 힘든	Climbing the mountain was arduous.
+articulate	분명히 표현하는; 분명히 말하다	She is articulate and persuasive.
+assert	단언하다, 주장하다	He asserted his innocence.
+assess	평가하다	The committee will assess the proposal.
+asset	자산, 강점	Her creativity is a valuable asset to the team.
+assign	배정하다, 할당하다	Each student was assigned a topic.
+assume	추정하다; (책임을) 떠맡다	We assume the meeting starts at ten.
+astonishing	놀라운	The recovery was astonishingly fast.
+attain	달성하다	She attained her fitness goals.
+attribute	(~의) 탓/덕으로 돌리다	They attribute the success to teamwork.
+audible	들리는	His whisper was barely audible.
+autonomous	자율적인, 자치의	The region became autonomous in 1999.
+aversion	혐오, 기피	She has a strong aversion to conflict.
+avid	열렬한	He is an avid reader of history.
+barren	척박한, 불모의	The soil here is too barren for crops.
+blatant	노골적인, 뻔한	It was a blatant lie.
+bolster	강화하다, 지지하다	The findings bolster our argument.
+boon	혜택, 이익	The new highway is a boon to commuters.
+brittle	부서지기 쉬운	The cookies turned brittle after baking too long.
+candid	솔직한	She gave a candid account of the event.
+capricious	변덕스러운	The market can be capricious.
+cargo	화물	The ship carried valuable cargo.
+carve	조각하다, 깎아 만들다	He carved his initials into the wood.
+cease	중단하다	All hostilities must cease immediately.
+chaos	혼돈	The announcement caused chaos in the lobby.
+cherish	소중히 여기다	We cherish the time we spend together.
+coarse	거친; 상스러운	The fabric felt coarse to the touch.
+coherent	일관성 있는, 논리적인	Her argument was coherent and convincing.
+coincide	동시에 일어나다; 일치하다	Our vacations coincide this year.
+collapse	붕괴하다; 기절하다	The bridge could collapse under the weight.
+collide	충돌하다	Two ideas collided during the debate.
+commence	시작하다	The ceremony will commence at noon.
+commodity	상품, 원자재	Wheat is a major commodity.
+compatible	양립할 수 있는, 호환되는	This device is compatible with Android.
+compel	강요하다	Circumstances compelled him to resign.
+competent	유능한	She is competent to lead the team.
+compile	편집하다, 수집하다	We compiled data from several sources.
+complacent	자기만족적인, 안주하는	Don’t become complacent after one win.
+comply	따르다, 준수하다	All vendors must comply with the rules.
+comprehensive	종합적인, 포괄적인	We need a comprehensive plan.
+comprise	구성하다, 포함하다	The panel comprises five experts.
+concede	인정하다, 양보하다	He conceded defeat gracefully.
+concise	간결한	Please keep your answers concise.
+concur	동의하다, 의견이 일치하다	I concur with your assessment.
+condone	묵인하다, 용납하다	We cannot condone plagiarism.
+confer	수여하다; 상의하다	The committee will confer tomorrow.
+confine	한정하다, 가두다	The disease was confined to one area.
+conform	따르다, 순응하다	You must conform to safety standards.
+confront	직면하다	We must confront this issue directly.
+consent	동의하다; 동의	Parental consent is required.
+considerable	상당한	He made considerable progress.
+consistent	일관된, 일치하는	The results are consistent with prior studies.
+consolidate	통합하다, 강화하다	They consolidated several departments.
+constitute	구성하다; ~이 되다	These actions constitute a breach of contract.
+constrain	강요하다, 제약하다	Budget limits constrain our options.
+contemplate	숙고하다	She contemplated moving abroad.
+contend	주장하다; 싸우다	They contend that the law is unfair.
+contentious	논쟁을 초래하는	It’s a contentious proposal.
+contrive	고안하다, 획책하다	They contrived a clever solution.
+conventional	전통적인, 관례적인	He prefers conventional methods.
+conversely	반대로	Conversely, the opposite may be true.
+convey	전달하다, 운반하다	Please convey my thanks to your team.
+cope	대처하다	She had to cope with constant noise.
+cordial	다정한, 화기애애한	We received a cordial welcome.
+counterpart	상대, 대응물	Her counterpart in London approved the plan.
+courteous	공손한	The staff were courteous and helpful.
+coalesce	합치다, 하나가 되다	Small groups coalesced into a movement.
+crater	분화구; 움푹 패인 곳	A large crater formed after the blast.
+crucial	중대한, 결정적인	It was a crucial moment in the match.
+cue	신호, 암시	That’s your cue to start speaking.
+curb	억제하다; 연석	New rules aim to curb pollution.
+cumbersome	다루기 힘든, 성가신	The old equipment is cumbersome to use.
+cultivate	경작하다; 기르다, 함양하다	They cultivate grapes for wine.
+debris	잔해, 파편	Debris littered the roadside.
+deem	여기다, 간주하다	We deem the risk acceptable.
+defy	반항하다, 저항하다	They openly defied the order.
+deliberate	의도적인; 신중한; 숙고하다	It was a deliberate choice.
+depict	묘사하다	The painting depicts a quiet village.
+derive	얻다, 유래하다	This word derives from Latin.
+designate	지정하다	This area is designated as a park.
+deter	단념시키다, 억제하다	High fines deter reckless driving.
+detrimental	해로운	Smoking is detrimental to health.
+deviate	벗어나다	We must not deviate from the plan.
+devise	고안하다	They devised a new testing method.
+diligent	부지런한, 성실한	She is diligent in her studies.

@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const labelFontSize   = document.querySelector('label[for="font-size-input"]');
   const labelWordColor  = document.querySelector('label[for="word-color-input"]');
   const labelFontColor  = document.querySelector('label[for="font-color-input"]');
+  const labelExampleColor = document.querySelector('label[for="example-color-input"]');
   const labelTimer      = document.querySelector('label[for="timer-input"]');
   const saveButton      = document.getElementById('save-button');
   const learnedListContainer = document.getElementById('learned-list-container');
@@ -27,6 +28,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   const fontSizeInput   = document.getElementById('font-size-input');
   const wordColorInput  = document.getElementById('word-color-input');
   const fontColorInput  = document.getElementById('font-color-input');
+  const exampleColorInput = document.getElementById('example-color-input');
   const timerInput      = document.getElementById('timer-input');
 
   // 언어/설정
@@ -42,6 +44,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       fontSize: 'Word Font Size (px)',
       wordColor: 'Word Color',
       fontColor: 'Meaning Color',
+      exampleColor: 'Example Color',
       timer: 'Word Interval (seconds)',
       save: 'Save and Apply',
       noLearned: 'No words marked as learned yet.',
@@ -56,6 +59,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       fontSize: '단어 글꼴 크기(px)',
       wordColor: '단어 색상',
       fontColor: '뜻 색상',
+      exampleColor: '예문 색상',
       timer: '전환 간격(초)',
       save: '저장 후 적용',
       noLearned: '외운 단어가 아직 없습니다.',
@@ -81,6 +85,7 @@ window.addEventListener('DOMContentLoaded', async () => {
     labelFontSize.textContent   = tr.fontSize;
     labelWordColor.textContent  = tr.wordColor;
     labelFontColor.textContent  = tr.fontColor;
+    labelExampleColor.textContent = tr.exampleColor;
     labelTimer.textContent      = tr.timer;
     saveButton.textContent      = tr.save;
   }
@@ -96,6 +101,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   fontSizeInput.value   = Number(settings.fontSize ?? 24);
   wordColorInput.value  = settings.wordColor || '#61afef';
   fontColorInput.value  = settings.fontColor || '#abb2bf';
+  exampleColorInput.value = settings.exampleColor || '#c8ccd4';
   timerInput.value      = Number(settings.timerSeconds ?? 10);
 
   // 텍스트 반영
@@ -137,6 +143,7 @@ window.addEventListener('DOMContentLoaded', async () => {
       fontSize: parseInt(fontSizeInput.value, 10),
       wordColor: wordColorInput.value,
       fontColor: fontColorInput.value,
+      exampleColor: exampleColorInput.value,
       timerSeconds: parseInt(timerInput.value, 10),
       language: lang
     };

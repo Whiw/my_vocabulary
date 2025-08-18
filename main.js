@@ -75,6 +75,7 @@ function createMainWindow() {
   mainWindow = new BrowserWindow({
     width: 350,
     height: 200,
+    icon: path.join(__dirname, 'assets/icons/app-icon.png'),
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
