@@ -31,7 +31,8 @@
       "icon": "assets/icons/app-icon.ico"
     },
     "mac": {
-      "target": "dmg",
+      "target": ["dmg", "zip"],
+      "hardenedRuntime": true,
       "icon": "assets/icons/app-icon.icns"
     }
   },
