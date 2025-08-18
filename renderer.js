@@ -2,6 +2,7 @@ const { ipcRenderer } = require('electron');
 const fs = require('fs');
 const path = require('path');
 
+
 window.addEventListener('DOMContentLoaded', async () => {
   // DOM Elements
   const wordEl = document.getElementById('word');
@@ -32,6 +33,25 @@ window.addEventListener('DOMContentLoaded', async () => {
   let settings = {};
 
   // --- SETTINGS ---
+
+async function initialize() {
+  loadLearnedWords();
+  const initialSettings = await ipcRenderer.invoke('get-settings');
+  await applySettings(initialSettings);
+
+  const lastPath = initialSettings.lastFilePath;
+  if (lastPath && fs.existsSync(lastPath)) {
+    try {
+      const content = fs.readFileSync(lastPath, 'utf-8');
+      currentFilePath = lastPath;
+      loadAndFilterWords(content);
+    } catch (e) {
+      console.error('Auto-load last file failed:', e);
+    }
+  }
+}
+
+
   async function applySettings(newSettings) {
     settings = newSettings || {};
     document.body.style.setProperty('--font-family', settings.fontFamily || "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif");
@@ -131,6 +151,8 @@ window.addEventListener('DOMContentLoaded', async () => {
 
     currentFilePath = result.filePath;
     loadAndFilterWords(result.content);
+
+    ipcRenderer.send('set-last-file', currentFilePath);
   });
 
   learnedCheckbox.addEventListener('change', () => {
@@ -172,7 +194,5 @@ window.addEventListener('DOMContentLoaded', async () => {
   });
 
   // --- INITIALIZATION ---
-  loadLearnedWords();
-  const initialSettings = await ipcRenderer.invoke('get-settings');
-  await applySettings(initialSettings);
+  initialize()
 });

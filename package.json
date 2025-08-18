@@ -17,7 +17,14 @@
     },
     "files": [
       "**/*",
-      "!node_modules/electron-builder/**/*"
+      "!node_modules/electron-builder/**/*",
+      "assets/**"
+    ],
+"extraResources": [
+      { "from": "assets/words.tsv",        "to": "words.tsv" },
+      { "from": "assets/sample_en_ko.tsv", "to": "sample_en_ko.tsv" },
+      { "from": "assets/kakaopay_qr.png", "to": "kakaopay_qr.png" },
+      { "from": "assets/toss_qr.jpg",     "to": "toss_qr.jpg" }
     ],
     "win": {
       "target": "nsis",
