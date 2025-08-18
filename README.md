@@ -1,11 +1,11 @@
-My Vocabulary
+#My Vocabulary
 
 A tiny, always-on-top overlay flashcard app for effortless vocabulary learning while you work or browse.
 
 Download (Windows/macOS(working now) → Releases
 Auto-updates when a new release is published.
 
-✨ Features
+#Features
 
 Overlay window that stays on top of other apps (drag to move, resize freely)
 
@@ -25,7 +25,7 @@ Lightweight: ships with its own Chromium & Node — no extra installs
 Some games use exclusive fullscreen (DirectX/OpenGL/Vulkan). In that mode, OS-level overlays can’t draw on top.
 Switch the game to borderless windowed (fullscreen) to see the overlay.
 
-📥 Installation
+#Installation
 
 Download the latest installer from Releases.
 
@@ -36,7 +36,7 @@ Run the installer. The app will start on completion.
 ℹ️ On Windows, you may see a SmartScreen warning if the app is unsigned.
 Choose “More info” → “Run anyway” to proceed. The app is open-source and doesn’t require extra runtimes.
 
-🚀 How to Use
+#How to Use
 1) Load a TSV
 
 Use Load to open a Tab-Separated Values file: word<TAB>meaning
@@ -77,12 +77,12 @@ Click Hide to show only the word/meaning and a Show button.
 Click Show to bring the full UI back.
 
 
-🔄 Auto-Update
+#Auto-Update
 
 The app checks GitHub Releases for updates on launch.
 A new release with the proper artifacts (Setup.exe/.dmg + latest*.yml + *.blockmap) will be downloaded and applied automatically.
 
-🌐 Language (EN/KR)
+#Language (EN/KR)
 
 Settings and About support English and Korean.
 
@@ -112,7 +112,7 @@ Learned를 체크하면 현재 단어가 세션에서 제외됩니다. 설정에
 
 Settings에서 전환 속도, 글꼴, 색상, 외운 단어 목록을 관리할 수 있습니다.
 
-❤️ Support the Developer
+#Support the Developer
 
 If this app helps you, consider supporting its development!
 
@@ -123,7 +123,7 @@ Patreon: [opens in About](https://www.patreon.com/c/Whiw)
 Buy Me a Coffee: https://buymeacoffee.com/whiw
 
 
-📂 Files & Persistence
+#Files & Persistence
 
 words.tsv / sample_en_ko.tsv: shipped in resources for easy starting
 
@@ -133,7 +133,7 @@ settings.json: saved to the user data folder (language, styles, timer)
 
 lastFilePath: remembers your last opened TSV and auto-loads it on next launch (configurable)
 
-🛠 Build (for Developers)
+#Build (for Developers)
 
 Prereqs: Node.js & npm
 
