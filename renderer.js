@@ -5,6 +5,8 @@ const path = require('path');
 
 window.addEventListener('DOMContentLoaded', async () => {
   // DOM Elements
+
+  const container = document.querySelector('.container');  // ★ 추가
   const wordEl = document.getElementById('word');
   const meaningEl = document.getElementById('meaning');
   const exampleEl = document.getElementById('example');
@@ -32,6 +34,7 @@ window.addEventListener('DOMContentLoaded', async () => {
   let currentIndex = 0;
   let timer = null;
   let settings = {};
+  let isHovered = false;
 
   // --- SETTINGS ---
 
@@ -112,7 +115,7 @@ async function initialize() {
   function resetTimer() {
     if (timer) clearInterval(timer);
     const sec = Number(settings.timerSeconds || 10);
-    if (words.length > 0 && sec > 0) {
+    if (words.length > 0 && sec > 0 && !isHovered) {
       timer = setInterval(showNextWord, sec * 1000);
     }
   }
@@ -210,6 +213,29 @@ async function initialize() {
       loadAndFilterWords(fileContent);
     }
   });
+
+ // --- MOUSE HOVER HANDLING ---
+// --- MOUSE HOVER HANDLING (REWRITE) ---
+function checkHoverState() {
+  const hovered = document.body.matches(':hover');  
+  console.log('[hover check]', { hovered, isHovered, timerActive: !!timer });
+
+  if (hovered && !isHovered) {
+    console.log('[hover] pause');
+    isHovered = true;
+    if (timer) {
+      clearInterval(timer);
+      timer = null;
+    }
+  } else if (!hovered && isHovered) {
+    console.log('[hover] resume');
+    isHovered = false;
+    resetTimer();
+  }
+}
+
+// 주기적으로 hover 상태 감시 (300ms마다)
+setInterval(checkHoverState, 300);
 
   // --- INITIALIZATION ---
   initialize()

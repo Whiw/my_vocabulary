@@ -3,6 +3,7 @@ const { autoUpdater } = require('electron-updater');
 const fs = require('fs');
 const path = require('path');
 const { spawn } = require('child_process');
+const { globalShortcut } = require('electron');
 
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');
 
@@ -175,6 +176,11 @@ app.whenReady().then(() => {
   ensureLanguageSetting();
   ensureSeedWords();
   createMainWindow();
+
+  globalShortcut.register('CommandOrControl+Shift+I', () => {
+    const win = BrowserWindow.getFocusedWindow();
+    if (win) win.webContents.toggleDevTools();
+  });
 
   app.on('activate', () => {
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow();
