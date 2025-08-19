@@ -1,6 +1,6 @@
 {
   "name": "my-vocabulary-app",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A simple vocabulary learning app.",
   "main": "main.js",
   "scripts": {
@@ -28,12 +28,14 @@
     ],
     "win": {
       "target": "nsis",
-      "icon": "assets/icons/app-icon.ico"
+      "icon": "assets/icons/app-icon.ico",
+      "artifactName": "my-vocabulary-setup-${version}.${ext}"
     },
     "mac": {
       "target": ["dmg", "zip"],
       "hardenedRuntime": true,
-      "icon": "assets/icons/app-icon.icns"
+      "icon": "assets/icons/app-icon.icns",
+      "artifactName": "my-vocabulary-setup-${version}.${ext}"
     }
   },
   "keywords": [],

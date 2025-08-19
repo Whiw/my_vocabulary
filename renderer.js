@@ -218,17 +218,16 @@ async function initialize() {
 // --- MOUSE HOVER HANDLING (REWRITE) ---
 function checkHoverState() {
   const hovered = document.body.matches(':hover');  
-  console.log('[hover check]', { hovered, isHovered, timerActive: !!timer });
 
   if (hovered && !isHovered) {
-    console.log('[hover] pause');
+    
     isHovered = true;
     if (timer) {
       clearInterval(timer);
       timer = null;
     }
   } else if (!hovered && isHovered) {
-    console.log('[hover] resume');
+    
     isHovered = false;
     resetTimer();
   }

@@ -5,6 +5,46 @@ const path = require('path');
 const { spawn } = require('child_process');
 const { globalShortcut } = require('electron');
 
+
+autoUpdater.on("checking-for-update", () => console.log("Checking for update..."));
+autoUpdater.on("update-available", (info) => console.log("Update available:", info));
+autoUpdater.on("update-not-available", (info) => console.log("No update available:", info));
+autoUpdater.on("error", (err) => console.error("Update error:", err));
+autoUpdater.on("download-progress", (p) => console.log(`Download progress: ${p.percent}%`));
+autoUpdater.on('update-downloaded', (info) => {
+  // 시스템 언어 감지
+  const locale = app.getLocale(); // 예: 'ko', 'en-US', 'ja' ...
+
+  // 다국어 메시지 정의
+  const messages = {
+    ko: {
+      title: '업데이트 완료',
+      message: '새로운 버전이 다운로드되었습니다. 지금 재시작하여 업데이트하시겠습니까?',
+      buttons: ['지금 재시작', '나중에']
+    },
+    en: {
+      title: 'Update Ready',
+      message: 'A new version has been downloaded. Restart the app to install it now?',
+      buttons: ['Restart Now', 'Later']
+    }
+  };
+
+  // 한국어면 ko, 아니면 en으로 fallback
+  const msg = locale.startsWith('ko') ? messages.ko : messages.en;
+
+  const result = dialog.showMessageBoxSync({
+    type: 'info',
+    buttons: msg.buttons,
+    title: msg.title,
+    message: msg.message
+  });
+
+  if (result === 0) { // "지금 재시작" / "Restart Now"
+    autoUpdater.quitAndInstall();
+  }
+});
+
+
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');
 
 let mainWindow, settingsWindow, aboutWindow;
@@ -91,7 +131,7 @@ function createMainWindow() {
 
   mainWindow.loadFile('index.html');
   mainWindow.on('closed', () => { mainWindow = null; });
-  autoUpdater.checkForUpdatesAndNotify();
+  
 }
 
 function createSettingsWindow() {
@@ -176,6 +216,9 @@ app.whenReady().then(() => {
   ensureLanguageSetting();
   ensureSeedWords();
   createMainWindow();
+  
+  
+  autoUpdater.checkForUpdatesAndNotify();
 
   globalShortcut.register('CommandOrControl+Shift+I', () => {
     const win = BrowserWindow.getFocusedWindow();
