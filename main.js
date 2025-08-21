@@ -159,9 +159,7 @@ function createSettingsWindow() {
   settingsWindow = new BrowserWindow({
     width: 500,
     height: 600,
-    parent: mainWindow,
-    modal: true,
-    alwaysOnTop: true,
+    alwaysOnTop: false,
     resizable: false,
     // 🔽 macOS에서 닫기/최소화/확대(트래픽 라이트) 확실히 노출
     frame: true,
@@ -188,8 +186,6 @@ function createAboutWindow() {
   aboutWindow = new BrowserWindow({
     width: 550,
     height: 650,
-    parent: mainWindow,
-    modal: true,
     alwaysOnTop: true,
     resizable: false,
     frame: true,
