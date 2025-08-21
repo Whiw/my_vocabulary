@@ -1,6 +1,6 @@
 {
   "name": "my-vocabulary-app",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "A simple vocabulary learning app.",
   "main": "main.js",
   "scripts": {
@@ -27,7 +27,10 @@
       { "from": "assets/toss_qr.jpg",     "to": "toss_qr.jpg" }
     ],
     "win": {
-      "target": "nsis",
+       "target": [
+    "nsis",
+    "appx"
+  ],
       "icon": "assets/icons/app-icon.ico",
       "artifactName": "my-vocabulary-setup-${version}.${ext}"
     },
@@ -36,7 +39,14 @@
       "hardenedRuntime": true,
       "icon": "assets/icons/app-icon.icns",
       "artifactName": "my-vocabulary-setup-${version}.${ext}"
-    }
+    },
+    "appx": {
+  "displayName": "My_Vocabulary",
+  "publisherDisplayName": "whiw",
+  "identityName": "whiw.MyVocabulary",
+  "publisher": "CN=4175687F-AEEF-4269-BC40-B06FFFB51FD0", 
+  "backgroundColor": "#ffffff"
+}
   },
   "keywords": [],
   "author": "whiw",

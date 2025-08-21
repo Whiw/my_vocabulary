@@ -6,6 +6,16 @@ const { spawn } = require('child_process');
 const { globalShortcut } = require('electron');
 
 
+const isWindowsStore = !!process.windowsStore;   // Microsoft Store 설치본이면 true
+const isMas         = process.mas === true;      // Mac App Store 빌드면 true
+const isStoreBuild  = isWindowsStore || isMas;   // 스토어 채널 통합 플래그
+
+if (isStoreBuild) {
+
+
+}
+else {
+
 autoUpdater.on("checking-for-update", () => console.log("Checking for update..."));
 autoUpdater.on("update-available", (info) => console.log("Update available:", info));
 autoUpdater.on("update-not-available", (info) => console.log("No update available:", info));
@@ -43,6 +53,11 @@ autoUpdater.on('update-downloaded', (info) => {
     autoUpdater.quitAndInstall();
   }
 });
+
+
+}
+
+
 
 
 const settingsPath = path.join(app.getPath('userData'), 'settings.json');
@@ -120,9 +135,11 @@ function createMainWindow() {
     webPreferences: {
       nodeIntegration: true,
       contextIsolation: false,
-      // preload: path.join(__dirname, 'preload.js') // 실제로 쓰지 않으면 주석
+      //preload: path.join(__dirname, 'preload.js') // 실제로 쓰지 않으면 주석
     },
     alwaysOnTop: true,
+    minimizable: false,          // 사용자가 최소화 버튼으로 못 내리게
+    fullscreenable: false, 
     resizable: true,
     frame: false,
     title: 'My Vocabulary',
@@ -132,6 +149,9 @@ function createMainWindow() {
   mainWindow.loadFile('index.html');
   mainWindow.on('closed', () => { mainWindow = null; });
   
+    mainWindow.setAlwaysOnTop(true, 'screen-saver'); // 'screen-saver'가 최상위 레벨
+  // 모든 워크스페이스/가상데스크톱/풀스크린 위에서도 보이도록
+  mainWindow.setVisibleOnAllWorkspaces(true, { visibleOnFullScreen: true });
 }
 
 function createSettingsWindow() {
@@ -229,6 +249,29 @@ app.whenReady().then(() => {
     if (BrowserWindow.getAllWindows().length === 0) createMainWindow();
   });
 });
+
+app.on('browser-window-created', (_e, win) => {
+  win.on('minimize', (ev) => {
+    ev.preventDefault();
+    win.restore();
+    win.show();
+    win.setAlwaysOnTop(true, 'screen-saver');
+  });
+  win.on('hide', () => {
+    win.show();
+    win.setAlwaysOnTop(true, 'screen-saver');
+  });
+});
+
+// 보수용 워치독 (안정성↑, 원치 않으면 제거 가능)
+setInterval(() => {
+  if (!mainWindow) return;
+  if (mainWindow.isMinimized()) {
+    mainWindow.restore();
+    mainWindow.show();
+    mainWindow.setAlwaysOnTop(true, 'screen-saver');
+  }
+}, 1000);
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();

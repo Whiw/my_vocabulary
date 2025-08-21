@@ -30,6 +30,10 @@ window.addEventListener('DOMContentLoaded', async () => {
   const fontColorInput  = document.getElementById('font-color-input');
   const exampleColorInput = document.getElementById('example-color-input');
   const timerInput      = document.getElementById('timer-input');
+  const ttslanguageSelect = document.getElementById('tts-lang');
+  const voicesList       = document.getElementById('voices-list');
+  const voicesNote       = document.getElementById('voices-note');
+  const voicesRefreshBtn = document.getElementById('voices-refresh');
 
   // 언어/설정
   let settings = await ipcRenderer.invoke('get-settings');
@@ -46,6 +50,11 @@ window.addEventListener('DOMContentLoaded', async () => {
       fontColor: 'Meaning Color',
       exampleColor: 'Example Color',
       timer: 'Word Interval (seconds)',
+      ttsLangLabel: 'TTS Language',
+      voicesHdr: 'Available Voices',
+      voicesRefresh: 'Refresh',
+      voicesNone: 'No voices detected yet. They usually appear a few seconds after opening this window.',
+      hintMissingTpl: (code) => `No installed voice for "${code}". On Windows: Settings → Time & Language → Speech → Add voices.`,
       save: 'Save and Apply',
       noLearned: 'No words marked as learned yet.',
       errorLearned: 'Error loading learned words.',
@@ -61,12 +70,32 @@ window.addEventListener('DOMContentLoaded', async () => {
       fontColor: '뜻 색상',
       exampleColor: '예문 색상',
       timer: '전환 간격(초)',
+      ttsLangLabel: 'TTS 언어',
+      voicesHdr: '사용 가능한 음성',
+      voicesRefresh: '새로고침',
+      voicesNone: '아직 감지된 음성이 없습니다. 이 창을 연 직후에는 몇 초 뒤 나타날 수 있습니다.',
+      hintMissingTpl: (code) => `선택한 언어("${code}")용 음성이 설치되어 있지 않습니다. Windows: 설정 → 시간 및 언어 → 음성 → ‘음성 추가’에서 설치하세요.`,
       save: '저장 후 적용',
       noLearned: '외운 단어가 아직 없습니다.',
       errorLearned: '외운 단어 목록을 불러오지 못했습니다.',
       remove: '삭제'
     }
   };
+
+  async function waitForVoicesReady(maxWait = 4000) {
+  // 한번 호출해 로딩 트리거
+  try { window.speechSynthesis.getVoices(); } catch {}
+  const start = Date.now();
+  return await new Promise((resolve) => {
+    const tick = () => {
+      const ready = (window.speechSynthesis.getVoices() || []).length > 0;
+      if (ready) return resolve(true);
+      if (Date.now() - start >= maxWait) return resolve(false);
+      setTimeout(tick, 100);
+    };
+    tick();
+  });
+}
 
   function applyTexts() {
     const tr = trMap[lang];
@@ -87,8 +116,14 @@ window.addEventListener('DOMContentLoaded', async () => {
     labelFontColor.textContent  = tr.fontColor;
     labelExampleColor.textContent = tr.exampleColor;
     labelTimer.textContent      = tr.timer;
+    document.querySelector('label[for="tts-lang"]').textContent = tr.ttsLangLabel;
     saveButton.textContent      = tr.save;
+    document.getElementById('voices-title').textContent = tr.voicesHdr;
+    document.getElementById('voices-refresh').textContent = tr.voicesRefresh;
   }
+
+
+
 
   // userData 경로
   try { userDataPath = await ipcRenderer.invoke('get-userData-path'); }
@@ -103,9 +138,14 @@ window.addEventListener('DOMContentLoaded', async () => {
   fontColorInput.value  = settings.fontColor || '#abb2bf';
   exampleColorInput.value = settings.exampleColor || '#c8ccd4';
   timerInput.value      = Number(settings.timerSeconds ?? 10);
+  ttslanguageSelect.value = settings.ttsLang || '';
 
   // 텍스트 반영
   applyTexts();
+
+  await waitForVoicesReady();
+  renderVoicesList();
+  updateMissingHint();
 
   // Learned 목록 로드
   loadLearnedWords();
@@ -145,11 +185,70 @@ window.addEventListener('DOMContentLoaded', async () => {
       fontColor: fontColorInput.value,
       exampleColor: exampleColorInput.value,
       timerSeconds: parseInt(timerInput.value, 10),
+      ttsLang: ttslanguageSelect.value || '',
       language: lang
     };
     ipcRenderer.send('save-settings', newSettings);
     window.close();
   });
+
+  function getVoicesSafe() {
+    try { return window.speechSynthesis.getVoices() || []; }
+    catch { return []; }
+  }
+
+  function renderVoicesList() {
+    const tr = trMap[lang];
+    const voices = getVoicesSafe();
+    voicesList.innerHTML = '';
+
+     // ✅ 아직 로딩 전이면 힌트 숨김
+  if (!voices.length) {
+    voicesNote.textContent = '';
+    voicesNote.style.display = 'none';
+    return;
+  }
+    const ul = document.createElement('ul');
+    ul.style.listStyle = 'none';
+    ul.style.padding = '0';
+    ul.style.margin = '0';
+
+    voices.forEach(v => {
+      const li = document.createElement('li');
+      li.style.padding = '2px 0';
+      li.textContent = `${v.name} — ${v.lang}${v.default ? ' (default)' : ''}`;
+      ul.appendChild(li);
+    });
+    voicesList.appendChild(ul);
+  }
+
+  function updateMissingHint() {
+  const tr = trMap[lang];
+  const code = (ttslanguageSelect.value || 'en-US').trim();
+
+  const voices = getVoicesSafe();
+  if (!voices.length) {                // ← 로딩 전: 메시지 숨김
+    voicesNote.textContent = '';
+    voicesNote.style.display = 'none';
+    return;
+  }
+
+  if (!code) { voicesNote.textContent = ''; voicesNote.style.display = 'none'; return; }
+
+  const lc = code.toLowerCase();
+  const has = voices.some(v => {
+    const L = (v.lang || '').toLowerCase();
+    return L === lc || L.startsWith(lc.split('-')[0]);
+  });
+
+  if (has) {
+    voicesNote.textContent = '';
+    voicesNote.style.display = 'none';
+  } else {
+    voicesNote.textContent = tr.hintMissingTpl(code);
+    voicesNote.style.display = '';
+  }
+}
 
   function loadLearnedWords() {
     learnedListContainer.innerHTML = '';
@@ -183,6 +282,22 @@ window.addEventListener('DOMContentLoaded', async () => {
       learnedListContainer.innerHTML = `<p>${tr.errorLearned}</p>`;
     }
   }
+  voicesRefreshBtn?.addEventListener('click', () => {
+    // 일부 환경에선 getVoices가 지연 로딩 → 약간 딜레이 후 다시 렌더
+    renderVoicesList();
+    setTimeout(() => { renderVoicesList(); updateMissingHint(); }, 300);
+  });
+
+  // ▼ TTS 언어 선택 변경 시 안내 갱신
+  ttslanguageSelect?.addEventListener('change', updateMissingHint);
+
+  // ▼ 브라우저(Chromium)에서 음성 목록 로딩 완료 이벤트
+  window.speechSynthesis?.addEventListener?.('voiceschanged', () => {
+  renderVoicesList();
+  updateMissingHint();
+});
+
+
 });
 
 const closeBtn = document.getElementById('win-close');

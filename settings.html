@@ -41,6 +41,7 @@
             <div class="form-group">
   <label for="example-color-input">Example Color</label>
   <input type="color" id="example-color-input">
+  
 </div>
         </div>
 
@@ -49,7 +50,39 @@
             <div class="form-group">
                 <label for="timer-input">Word Interval (seconds)</label>
                 <input type="number" id="timer-input" min="1">
+                
             </div>
+            <div class="form-group">
+              <label for="tts-lang">TTS Language</label>
+              <select id="tts-lang">
+                <option value="">(Default: en-US)</option>
+                <option value="en-US">English (US)</option>
+                <option value="en-GB">English (UK)</option>
+                <option value="es-ES">Español (España)</option>
+                <option value="es-MX">Español (México)</option>
+                <option value="pt-BR">Português (Brasil)</option>
+                <option value="pt-PT">Português (Portugal)</option>
+                <option value="fr-FR">Français</option>
+                <option value="de-DE">Deutsch</option>
+                <option value="it-IT">Italiano</option>
+                <option value="nl-NL">Nederlands</option>
+                <option value="pl-PL">Polski</option>
+                <option value="tr-TR">Türkçe</option>
+                <option value="ru-RU">Русский</option>
+                <option value="ko-KR">한국어</option>
+                <option value="ja-JP">日本語</option>
+                <option value="zh-CN">中文(简体)</option>
+                <option value="zh-TW">中文(繁體)</option>
+              </select>
+            </div>
+         <div class="tts-voices-block" style="margin-top:8px;">
+  <div style="display:flex; align-items:center; gap:8px;">
+    <strong id="voices-title">Available Voices</strong>
+    <button id="voices-refresh" type="button">Refresh</button>
+  </div>
+  <div id="voices-note" class="muted" style="margin-top:4px;"></div>
+  <div id="voices-list" class="mono" style="max-height:160px; overflow:auto; margin-top:6px; border:1px solid #ddd; padding:6px; border-radius:6px;"></div>
+</div>
         </div>
 
         <div class="settings-section">
