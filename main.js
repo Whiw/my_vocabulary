@@ -253,21 +253,25 @@ app.on('browser-window-created', (_e, win) => {
     win.show();
     win.setAlwaysOnTop(true, 'screen-saver');
   });
+if (process.platform !== 'darwin') {
   win.on('hide', () => {
     win.show();
     win.setAlwaysOnTop(true, 'screen-saver');
   });
+}
 });
 
 // 보수용 워치독 (안정성↑, 원치 않으면 제거 가능)
-setInterval(() => {
-  if (!mainWindow) return;
-  if (mainWindow.isMinimized()) {
-    mainWindow.restore();
-    mainWindow.show();
-    mainWindow.setAlwaysOnTop(true, 'screen-saver');
-  }
-}, 1000);
+if (process.platform !== 'darwin') {
+  setInterval(() => {
+    if (!mainWindow) return;
+    if (mainWindow.isMinimized()) {
+      mainWindow.restore();
+      mainWindow.show();
+      mainWindow.setAlwaysOnTop(true, 'screen-saver');
+    }
+  }, 1000);
+}
 
 app.on('window-all-closed', () => {
   if (process.platform !== 'darwin') app.quit();
