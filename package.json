@@ -1,6 +1,6 @@
 {
   "name": "my-vocabulary-app",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "A simple vocabulary learning app.",
   "main": "main.js",
   "scripts": {
@@ -45,10 +45,7 @@
   "publisherDisplayName": "whiw",
   "identityName": "whiw.MyVocabulary",
   "publisher": "CN=4175687F-AEEF-4269-BC40-B06FFFB51FD0", 
-  "backgroundColor": "#ffffff",
-  "logo": "assets/icons/StoreLogo.png",              
-  "square150x150Logo": "assets/icons/Square150x150Logo.png",  
-  "square44x44Logo": "assets/icons/Square44x44Logo.png"
+  "backgroundColor": "#ffffff"
 }
   },
   "keywords": [],
