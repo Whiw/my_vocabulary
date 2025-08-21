@@ -45,7 +45,10 @@
   "publisherDisplayName": "whiw",
   "identityName": "whiw.MyVocabulary",
   "publisher": "CN=4175687F-AEEF-4269-BC40-B06FFFB51FD0", 
-  "backgroundColor": "#ffffff"
+  "backgroundColor": "#ffffff",
+  "logo": "assets/icons/StoreLogo.png",              
+  "square150x150Logo": "assets/icons/Square150x150Logo.png",  
+  "square44x44Logo": "assets/icons/Square44x44Logo.png"
 }
   },
   "keywords": [],
